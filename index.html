@@ -8,8 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <!-- Favicon (ícone de escudo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
   <style>
     * {
@@ -19,112 +19,147 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f8faff;
-      color: #1e2a41;
+      background-color: #f5f8fc;
+      color: #1a2a3e;
     }
     .bg-multiagri {
       background: linear-gradient(145deg, #0b2a4a 0%, #1a4a6f 100%);
     }
+    .bg-multiagri-light {
+      background: linear-gradient(145deg, #e8eff8 0%, #d5e3f0 100%);
+    }
     .text-multiagri {
       color: #0b2a4a;
-    }
-    .btn-outline-multiagri {
-      border: 2px solid #0b2a4a;
-      color: #0b2a4a;
-      transition: 0.2s;
-    }
-    .btn-outline-multiagri:hover {
-      background: #0b2a4a;
-      color: #fff;
     }
     .btn-multiagri {
       background: #0b2a4a;
       color: #fff;
-      transition: 0.2s;
+      transition: 0.3s;
+      border-radius: 50px;
+      padding: 12px 32px;
+      font-weight: 600;
     }
     .btn-multiagri:hover {
       background: #1a4a6f;
       color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(11, 42, 74, 0.3);
+    }
+    .btn-outline-multiagri {
+      border: 2px solid #0b2a4a;
+      color: #0b2a4a;
+      border-radius: 50px;
+      padding: 12px 32px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn-outline-multiagri:hover {
+      background: #0b2a4a;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-light-multiagri {
+      background: white;
+      color: #0b2a4a;
+      border-radius: 50px;
+      padding: 12px 32px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn-light-multiagri:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
     }
     .card-shadow {
-      box-shadow: 0 12px 30px rgba(0, 20, 40, 0.08);
-      transition: transform 0.2s;
+      box-shadow: 0 12px 40px rgba(0, 20, 40, 0.08);
+      transition: all 0.3s;
       border: none;
-      border-radius: 20px;
+      border-radius: 24px;
+      overflow: hidden;
     }
     .card-shadow:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0, 20, 40, 0.15);
     }
     .section-title {
-      font-weight: 700;
+      font-weight: 800;
       color: #0b2a4a;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.02em;
     }
     .section-title span {
-      background: #dce8f5;
-      padding: 0 12px;
+      background: linear-gradient(145deg, #dce8f5, #c5d7ea);
+      padding: 0 16px;
       border-radius: 40px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.85rem;
+      font-weight: 700;
       color: #0b2a4a;
-    }
-    .hero-icon {
-      font-size: 4rem;
-      color: #ffffffcc;
-    }
-    .info-card {
-      background: white;
-      border-radius: 28px;
-      padding: 2rem 1.8rem;
-      height: 100%;
-      border: 1px solid #e9eff6;
-    }
-    .footer-link {
-      color: #1a3a5a;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.15s;
-    }
-    .footer-link:hover {
-      color: #0b2a4a;
-      text-decoration: underline;
-    }
-    .social-icon {
-      font-size: 1.6rem;
-      color: #1a3a5a;
-      transition: 0.2s;
-    }
-    .social-icon:hover {
-      color: #0b2a4a;
-    }
-    .list-group-item-custom {
-      background: transparent;
-      border: none;
-      padding: 0.5rem 0;
-    }
-    .list-group-item-custom a {
-      color: #1e2a41;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .list-group-item-custom a:hover {
-      color: #0b2a4a;
-      text-decoration: underline;
+      display: inline-block;
     }
     .badge-soft {
       background: #e2eaf5;
       color: #0b2a4a;
       font-weight: 600;
-      padding: 0.4rem 1rem;
+      padding: 0.5rem 1.2rem;
       border-radius: 40px;
     }
-    .border-bottom-light {
-      border-bottom: 1px solid #e0e9f2;
+    .hero-section {
+      position: relative;
+      overflow: hidden;
     }
-    .bg-soft-light {
-      background-color: #f2f7fe;
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(11, 42, 74, 0.85) 0%, rgba(11, 42, 74, 0.4) 100%);
+      z-index: 1;
     }
-    /* NOVO FOOTER - cores suaves e institucionais */
+    .hero-section .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-image-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .stat-card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.03);
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      border-left: 4px solid #0b2a4a;
+    }
+    .feature-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(145deg, #e8eff8, #d5e3f0);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #0b2a4a;
+    }
     .footer-soft {
       background: #e8eff8;
       color: #1a2e44;
@@ -132,87 +167,148 @@
     }
     .footer-soft .footer-link {
       color: #1a3a5a;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.15s;
     }
     .footer-soft .footer-link:hover {
       color: #0b2a4a;
       text-decoration: underline;
     }
     .footer-soft .social-icon {
+      font-size: 1.6rem;
       color: #1a4a6f;
+      transition: 0.2s;
     }
     .footer-soft .social-icon:hover {
       color: #0b2a4a;
+      transform: translateY(-3px);
     }
     .footer-soft hr {
       border-color: #b8cce0;
       opacity: 0.5;
     }
-    .footer-soft .text-secondary-emphasis {
-      color: #1a3a5a !important;
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(11, 42, 74, 0.5);
+      border-radius: 50%;
+      padding: 20px;
+    }
+    .carousel-indicators button {
+      width: 12px !important;
+      height: 12px !important;
+      border-radius: 50% !important;
+      border: 2px solid #0b2a4a !important;
+    }
+    .carousel-indicators .active {
+      background: #0b2a4a !important;
+    }
+    .partner-logo {
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: 0.3s;
+      max-height: 60px;
+    }
+    .partner-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: 500px;
+      }
     }
   </style>
 </head>
 <body>
   <!-- ========== NAVBAR ========== -->
-  <nav class="navbar navbar-expand-lg bg-multiagri navbar-dark py-3">
+  <nav class="navbar navbar-expand-lg bg-multiagri navbar-dark py-3 fixed-top">
     <div class="container">
       <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="#">
         <i class="bi bi-shield-check me-2" style="font-size: 2rem;"></i>
         Multiagri
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto gap-2">
-          <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
           <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
           <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
           <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- ========== HERO ========== -->
-  <section class="py-5 bg-multiagri text-white">
-    <div class="container py-4">
+  <!-- ========== HERO COM IMAGEM DE SAÚDE ========== -->
+  <section id="home" class="hero-section position-relative" style="min-height: 100vh; padding-top: 80px;">
+    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80" 
+         alt="Equipe médica cuidando da saúde" 
+         class="hero-image-bg">
+    <div class="container py-5 text-white" style="padding-top: 120px !important; padding-bottom: 80px !important;">
       <div class="row align-items-center g-5">
         <div class="col-lg-7">
-          <span class="badge bg-light text-multiagri fs-6 fw-semibold px-4 py-2 rounded-pill mb-3">
-            <i class="bi bi-heart-pulse me-2"></i> Corretora especializada
+          <span class="badge bg-white text-multiagri fs-6 fw-semibold px-4 py-2 rounded-pill mb-3">
+            <i class="bi bi-heart-pulse me-2"></i> Corretora especializada há 15+ anos
           </span>
-          <h1 class="display-4 fw-bold lh-1 mb-3">
-            Proteção que <br><span style="color: #ffd966;">cuida de você</span>
+          <h1 class="display-3 fw-bold lh-1 mb-3">
+            Proteção que <br><span style="color: #ffd966;">cuida da sua saúde</span>
           </h1>
-          <p class="lead mb-4 opacity-75" style="max-width: 90%;">
+          <p class="lead mb-4 opacity-90" style="max-width: 90%;">
             Planos de saúde e previdência complementar com a confiança de quem entende. 
-            Multiagri – mais de 15 anos construindo segurança.
+            Mais de 15 anos construindo segurança para você e sua família.
           </p>
           <div class="d-flex flex-wrap gap-3">
-            <a href="#planos" class="btn btn-light btn-lg px-5 fw-semibold text-multiagri">
+            <a href="#planos" class="btn btn-light-multiagri btn-lg px-5">
               <i class="bi bi-file-check me-2"></i> Ver planos
             </a>
             <a href="#contato" class="btn btn-outline-light btn-lg px-5">
               <i class="bi bi-whatsapp me-2"></i> Fale conosco
             </a>
           </div>
+          <div class="row g-3 mt-4">
+            <div class="col-4">
+              <div class="stat-card">
+                <h3 class="fw-bold mb-0">15+</h3>
+                <small>Anos de mercado</small>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="stat-card">
+                <h3 class="fw-bold mb-0">5K+</h3>
+                <small>Clientes atendidos</small>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="stat-card">
+                <h3 class="fw-bold mb-0">98%</h3>
+                <small>Satisfação</small>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-5 text-center">
-          <div class="bg-white bg-opacity-10 p-4 rounded-5 d-inline-block">
-            <i class="bi bi-hospital" style="font-size: 7rem; color: #ffd966;"></i>
-            <p class="mt-2 fw-semibold"><i class="bi bi-check-circle-fill text-success me-1"></i> Saúde e Previdência</p>
+        <div class="col-lg-5 text-center d-none d-lg-block">
+          <div class="bg-white bg-opacity-15 p-5 rounded-5 backdrop-blur-sm border border-white border-opacity-25">
+            <i class="bi bi-hospital" style="font-size: 8rem; color: #ffd966;"></i>
+            <p class="mt-3 fw-semibold fs-5">
+              <i class="bi bi-check-circle-fill text-success me-2"></i> 
+              Saúde e Previdência
+            </p>
+            <p class="small opacity-75">Cobertura nacional • Rede credenciada</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== DADOS DA EMPRESA (DESTAQUE) ========== -->
-  <section class="py-4 bg-white border-bottom-light">
+  <!-- ========== DADOS DA EMPRESA ========== -->
+  <section class="py-4 bg-white shadow-sm">
     <div class="container">
-      <div class="row text-center g-3">
+      <div class="row text-center g-3 align-items-center">
         <div class="col-md-3"><i class="bi bi-calendar-check text-multiagri me-2"></i> <strong>Cadastro:</strong> 14/06/2007</div>
         <div class="col-md-3"><i class="bi bi-file-earmark-text text-multiagri me-2"></i> <strong>CNPJ:</strong> 06.976.612/0005-24</div>
         <div class="col-md-3"><i class="bi bi-geo-alt text-multiagri me-2"></i> <strong>Camapuã - MS</strong></div>
@@ -221,53 +317,70 @@
     </div>
   </section>
 
-  <!-- ========== PLANOS (SAÚDE + PREVIDÊNCIA) ========== -->
-  <section id="planos" class="py-5 bg-soft-light">
+  <!-- ========== PLANOS ========== -->
+  <section id="planos" class="py-5 bg-soft-light" style="background: #f5f8fc;">
     <div class="container py-3">
       <div class="text-center mb-5">
-        <h2 class="section-title display-5">Nossos <span>Planos</span></h2>
-        <p class="text-secondary">Cobertura completa para você e sua família</p>
+        <span class="badge-soft mb-2"><i class="bi bi-grid-3x3-gap-fill me-1"></i> Nossos Planos</span>
+        <h2 class="section-title display-5">Soluções completas para <span>você</span></h2>
+        <p class="text-secondary">Cobertura abrangente com as melhores operadoras do mercado</p>
       </div>
       <div class="row g-4">
         <!-- Plano Saúde -->
         <div class="col-lg-6">
-          <div class="info-card card-shadow h-100">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <i class="bi bi-heart-pulse-fill" style="font-size: 2.8rem; color: #0b2a4a;"></i>
-              <h3 class="h2 fw-bold text-multiagri mb-0">Plano de Saúde</h3>
+          <div class="card-shadow h-100" style="background: white;">
+            <div style="height: 200px; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?w=800&q=80" 
+                   alt="Plano de Saúde" 
+                   class="img-fluid w-100 h-100" style="object-fit: cover;">
             </div>
-            <p class="fs-5 fw-light">Rede credenciada, atendimento ágil e cobertura nacional.</p>
-            <ul class="list-unstyled mt-3">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Consultas, exames e internações</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Maternidade e pediatria</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Urgência e emergência 24h</li>
-            </ul>
-            <div class="mt-3">
-              <span class="badge-soft"><i class="bi bi-tag me-1"></i> A partir de R$ 249/mês</span>
-            </div>
-            <div class="mt-4">
-              <a href="#contato" class="btn btn-multiagri px-5">Quero esse plano</a>
+            <div class="p-4">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <i class="bi bi-heart-pulse-fill" style="font-size: 2.8rem; color: #0b2a4a;"></i>
+                <h3 class="h2 fw-bold text-multiagri mb-0">Plano de Saúde</h3>
+              </div>
+              <p class="fs-5 fw-light">Rede credenciada, atendimento ágil e cobertura nacional.</p>
+              <ul class="list-unstyled mt-3">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Consultas, exames e internações</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Maternidade e pediatria</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Urgência e emergência 24h</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Cobertura nacional</li>
+              </ul>
+              <div class="mt-3">
+                <span class="badge-soft"><i class="bi bi-tag me-1"></i> A partir de R$ 249/mês</span>
+              </div>
+              <div class="mt-4">
+                <a href="#contato" class="btn btn-multiagri px-5 w-100">Quero esse plano</a>
+              </div>
             </div>
           </div>
         </div>
         <!-- Previdência Complementar -->
         <div class="col-lg-6">
-          <div class="info-card card-shadow h-100">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <i class="bi bi-piggy-bank-fill" style="font-size: 2.8rem; color: #0b2a4a;"></i>
-              <h3 class="h2 fw-bold text-multiagri mb-0">Previdência</h3>
+          <div class="card-shadow h-100" style="background: white;">
+            <div style="height: 200px; overflow: hidden;">
+              <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" 
+                   alt="Previdência" 
+                   class="img-fluid w-100 h-100" style="object-fit: cover;">
             </div>
-            <p class="fs-5 fw-light">Construa seu futuro com segurança e vantagens fiscais.</p>
-            <ul class="list-unstyled mt-3">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Planos PGBL e VGBL</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Resgate programado ou total</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Benefício fiscal (IR)</li>
-            </ul>
-            <div class="mt-3">
-              <span class="badge-soft"><i class="bi bi-arrow-up-circle me-1"></i> Rentabilidade competitiva</span>
-            </div>
-            <div class="mt-4">
-              <a href="#contato" class="btn btn-outline-multiagri px-5">Simular agora</a>
+            <div class="p-4">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <i class="bi bi-piggy-bank-fill" style="font-size: 2.8rem; color: #0b2a4a;"></i>
+                <h3 class="h2 fw-bold text-multiagri mb-0">Previdência</h3>
+              </div>
+              <p class="fs-5 fw-light">Construa seu futuro com segurança e vantagens fiscais.</p>
+              <ul class="list-unstyled mt-3">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Planos PGBL e VGBL</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Resgate programado ou total</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Benefício fiscal (IR)</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Portabilidade facilitada</li>
+              </ul>
+              <div class="mt-3">
+                <span class="badge-soft"><i class="bi bi-arrow-up-circle me-1"></i> Rentabilidade competitiva</span>
+              </div>
+              <div class="mt-4">
+                <a href="#contato" class="btn btn-outline-multiagri px-5 w-100">Simular agora</a>
+              </div>
             </div>
           </div>
         </div>
@@ -275,13 +388,54 @@
     </div>
   </section>
 
-  <!-- ========== SOBRE / CORRETORES ========== -->
-  <section id="sobre" class="py-5 bg-white">
+  <!-- ========== DIFERENCIAIS ========== -->
+  <section id="diferenciais" class="py-5 bg-white">
+    <div class="container py-3">
+      <div class="text-center mb-5">
+        <span class="badge-soft mb-2"><i class="bi bi-star-fill me-1"></i> Por que escolher a Multiagri</span>
+        <h2 class="section-title display-5">Nossos <span>Diferenciais</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="text-center p-4 rounded-4 bg-light">
+            <div class="feature-icon mx-auto mb-3">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h5 class="fw-bold">Atendimento Personalizado</h5>
+            <p class="text-secondary">Corretores especializados que entendem suas necessidades e oferecem a melhor solução.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center p-4 rounded-4 bg-light">
+            <div class="feature-icon mx-auto mb-3">
+              <i class="bi bi-building"></i>
+            </div>
+            <h5 class="fw-bold">Melhores Operadoras</h5>
+            <p class="text-secondary">Parceria com as principais operadoras de saúde e previdência do país.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="text-center p-4 rounded-4 bg-light">
+            <div class="feature-icon mx-auto mb-3">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <h5 class="fw-bold">Suporte Contínuo</h5>
+            <p class="text-secondary">Acompanhamento em todas as etapas, da contratação ao pós-venda.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOBRE ========== -->
+  <section id="sobre" class="py-5 bg-soft-light" style="background: #f5f8fc;">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-md-6">
-          <img src="https://placehold.co/600x400/0b2a4a/white?text=Multiagri+Corretora" 
-               alt="Equipe Multiagri" class="img-fluid rounded-4 shadow">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" 
+               alt="Equipe Multiagri" 
+               class="img-fluid rounded-4 shadow-lg" 
+               style="max-height: 450px; width: 100%; object-fit: cover;">
         </div>
         <div class="col-md-6">
           <span class="badge-soft mb-3"><i class="bi bi-people me-1"></i> Agentes e Corretores</span>
@@ -291,46 +445,107 @@
             <li class="mb-2"><i class="bi bi-check2-circle text-multiagri me-2"></i> Atendimento personalizado</li>
             <li class="mb-2"><i class="bi bi-check2-circle text-multiagri me-2"></i> Suporte contínuo</li>
             <li class="mb-2"><i class="bi bi-check2-circle text-multiagri me-2"></i> Melhores operadoras do mercado</li>
+            <li class="mb-2"><i class="bi bi-check2-circle text-multiagri me-2"></i> Transparência total</li>
           </ul>
-          <div class="mt-4 d-flex gap-3">
-            <span class="badge bg-light text-multiagri p-3 rounded-pill"><i class="bi bi-building"></i> Matriz: Camapuã-MS</span>
-            <span class="badge bg-light text-multiagri p-3 rounded-pill"><i class="bi bi-award"></i> CNPJ: 06.976.612/0005-24</span>
+          <div class="mt-4 d-flex flex-wrap gap-3">
+            <span class="badge bg-light text-multiagri p-3 rounded-pill border">
+              <i class="bi bi-building"></i> Matriz: Camapuã-MS
+            </span>
+            <span class="badge bg-light text-multiagri p-3 rounded-pill border">
+              <i class="bi bi-award"></i> CNPJ: 06.976.612/0005-24
+            </span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== INFORMAÇÕES ADICIONAIS (ENDEREÇO, ÍCONES) ========== -->
-  <section class="py-4 bg-soft-light">
+  <!-- ========== DEPOIMENTOS ========== -->
+  <section id="depoimentos" class="py-5 bg-white">
+    <div class="container py-3">
+      <div class="text-center mb-5">
+        <span class="badge-soft mb-2"><i class="bi bi-chat-quote-fill me-1"></i> O que nossos clientes dizem</span>
+        <h2 class="section-title display-5">Depoimentos <span>Reais</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div style="width: 50px; height: 50px; background: #0b2a4a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.4rem;">MR</div>
+              <div>
+                <h6 class="fw-bold mb-0">Maria R.</h6>
+                <small class="text-secondary">Cliente há 3 anos</small>
+              </div>
+            </div>
+            <p class="mb-0">"Excelente atendimento! A Multiagri me ajudou a encontrar o plano de saúde ideal para minha família. Recomendo a todos!"</p>
+            <div class="mt-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div style="width: 50px; height: 50px; background: #1a4a6f; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.4rem;">JS</div>
+              <div>
+                <h6 class="fw-bold mb-0">João S.</h6>
+                <small class="text-secondary">Cliente há 5 anos</small>
+              </div>
+            </div>
+            <p class="mb-0">"Contratei minha previdência com a Multiagri e não me arrependo. Profissionais competentes e sempre disponíveis para tirar dúvidas."</p>
+            <div class="mt-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div style="width: 50px; height: 50px; background: #0b2a4a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.4rem;">AC</div>
+              <div>
+                <h6 class="fw-bold mb-0">Ana C.</h6>
+                <small class="text-secondary">Cliente há 2 anos</small>
+              </div>
+            </div>
+            <p class="mb-0">"Atendimento humanizado e eficiente. A Multiagri sempre me orienta com clareza e transparência. Super recomendo!"</p>
+            <div class="mt-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PARCEIROS ========== -->
+  <section class="py-4 bg-soft-light" style="background: #f5f8fc;">
     <div class="container">
-      <div class="row g-4 text-center">
-        <div class="col-md-4">
-          <div class="p-4 rounded-4 bg-white shadow-sm">
-            <i class="bi bi-geo-alt-fill text-multiagri" style="font-size: 2.4rem;"></i>
-            <h5 class="mt-2 fw-bold">Onde estamos</h5>
-            <p class="mb-0">Rua Paraíba, 62 – Jardim dos Palmares<br>Camapuã – MS, 79420-000</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-4 rounded-4 bg-white shadow-sm">
-            <i class="bi bi-telephone-fill text-multiagri" style="font-size: 2.4rem;"></i>
-            <h5 class="mt-2 fw-bold">Fale conosco</h5>
-            <p class="mb-0">(67) 99890-3937<br><small>atendimento@multiagri.com.br</small></p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p-4 rounded-4 bg-white shadow-sm">
-            <i class="bi bi-shield-fill-check text-multiagri" style="font-size: 2.4rem;"></i>
-            <h5 class="mt-2 fw-bold">Confiança</h5>
-            <p class="mb-0">Registro SUSEP: 0000000<br><span class="badge-soft mt-1"><i class="bi bi-clock"></i> Ativo desde 2007</span></p>
-          </div>
-        </div>
+      <div class="text-center mb-4">
+        <h6 class="text-uppercase text-secondary fw-bold">Nossos parceiros</h6>
+      </div>
+      <div class="row g-4 align-items-center justify-content-center">
+        <div class="col-auto"><img src="https://placehold.co/120x60/0b2a4a/white?text=Operadora+A" class="partner-logo" alt="Parceiro"></div>
+        <div class="col-auto"><img src="https://placehold.co/120x60/1a4a6f/white?text=Operadora+B" class="partner-logo" alt="Parceiro"></div>
+        <div class="col-auto"><img src="https://placehold.co/120x60/0b2a4a/white?text=Operadora+C" class="partner-logo" alt="Parceiro"></div>
+        <div class="col-auto"><img src="https://placehold.co/120x60/1a4a6f/white?text=Operadora+D" class="partner-logo" alt="Parceiro"></div>
+        <div class="col-auto"><img src="https://placehold.co/120x60/0b2a4a/white?text=Operadora+E" class="partner-logo" alt="Parceiro"></div>
       </div>
     </div>
   </section>
 
-  <!-- ========== CONTATO (CTA) ========== -->
+  <!-- ========== CONTATO ========== -->
   <section id="contato" class="py-5 bg-multiagri text-white">
     <div class="container py-4">
       <div class="row justify-content-center text-center">
@@ -342,7 +557,7 @@
               <i class="bi bi-whatsapp me-2"></i> (67) 99890-3937
             </a>
             <a href="#" class="btn btn-outline-light btn-lg px-5">
-              <i class="bi bi-envelope me-2"></i> Enviar e-mail
+              <i class="bi bi-envelope me-2"></i> contato@multiagri.com.br
             </a>
           </div>
           <p class="mt-4 small opacity-75"><i class="bi bi-info-circle"></i> Atendimento de segunda a sexta, 8h às 18h.</p>
@@ -351,11 +566,10 @@
     </div>
   </section>
 
-  <!-- ========== NOVO FOOTER (cores suaves / tom azul claro) ========== -->
+  <!-- ========== FOOTER ========== -->
   <footer class="footer-soft pt-5 pb-4">
     <div class="container">
       <div class="row g-4">
-        <!-- Coluna 1: Marca -->
         <div class="col-md-4">
           <h5 class="fw-bold d-flex align-items-center text-multiagri">
             <i class="bi bi-shield-check me-2"></i> Multiagri
@@ -370,7 +584,6 @@
             <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-        <!-- Coluna 2: Links institucionais (Políticas, Termos, Atendimento, Privacidade) -->
         <div class="col-md-4">
           <h6 class="fw-bold text-uppercase small text-multiagri">Institucional</h6>
           <ul class="list-unstyled">
@@ -380,7 +593,6 @@
             <li class="list-group-item-custom"><a href="#" class="footer-link">Política de privacidade</a></li>
           </ul>
         </div>
-        <!-- Coluna 3: Contato / dados -->
         <div class="col-md-4">
           <h6 class="fw-bold text-uppercase small text-multiagri">Contato</h6>
           <ul class="list-unstyled text-secondary-emphasis small">
@@ -403,7 +615,6 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
