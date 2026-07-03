@@ -25,9 +25,6 @@
     .bg-multiagri {
       background: linear-gradient(145deg, #0b2a4a 0%, #1a4a6f 100%);
     }
-    .bg-multiagri-light {
-      background: linear-gradient(145deg, #e8eff8 0%, #d5e3f0 100%);
-    }
     .text-multiagri {
       color: #0b2a4a;
     }
@@ -188,21 +185,6 @@
       border-color: #b8cce0;
       opacity: 0.5;
     }
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      background-color: rgba(11, 42, 74, 0.5);
-      border-radius: 50%;
-      padding: 20px;
-    }
-    .carousel-indicators button {
-      width: 12px !important;
-      height: 12px !important;
-      border-radius: 50% !important;
-      border: 2px solid #0b2a4a !important;
-    }
-    .carousel-indicators .active {
-      background: #0b2a4a !important;
-    }
     .partner-logo {
       filter: grayscale(100%);
       opacity: 0.6;
@@ -212,6 +194,29 @@
     .partner-logo:hover {
       filter: grayscale(0%);
       opacity: 1;
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: 0.3s;
+      z-index: 999;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      color: white;
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
     }
     @media (max-width: 768px) {
       .hero-section {
@@ -224,7 +229,7 @@
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar navbar-expand-lg bg-multiagri navbar-dark py-3 fixed-top">
     <div class="container">
-      <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="#">
+      <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="index.html">
         <i class="bi bi-shield-check me-2" style="font-size: 2rem;"></i>
         Multiagri
       </a>
@@ -233,10 +238,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto gap-2">
-          <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
           <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
           <li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
-          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
           <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
           <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
         </ul>
@@ -318,7 +323,7 @@
   </section>
 
   <!-- ========== PLANOS ========== -->
-  <section id="planos" class="py-5 bg-soft-light" style="background: #f5f8fc;">
+  <section id="planos" class="py-5" style="background: #f5f8fc;">
     <div class="container py-3">
       <div class="text-center mb-5">
         <span class="badge-soft mb-2"><i class="bi bi-grid-3x3-gap-fill me-1"></i> Nossos Planos</span>
@@ -427,41 +432,8 @@
     </div>
   </section>
 
-  <!-- ========== SOBRE ========== -->
-  <section id="sobre" class="py-5 bg-soft-light" style="background: #f5f8fc;">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-md-6">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" 
-               alt="Equipe Multiagri" 
-               class="img-fluid rounded-4 shadow-lg" 
-               style="max-height: 450px; width: 100%; object-fit: cover;">
-        </div>
-        <div class="col-md-6">
-          <span class="badge-soft mb-3"><i class="bi bi-people me-1"></i> Agentes e Corretores</span>
-          <h2 class="section-title display-6">Quem cuida de você</h2>
-          <p class="lead fw-normal">A <strong>Multiagri Consultoria e Corretora de Seguros</strong> atua há mais de 15 anos com ética e transparência. Nossos corretores são especialistas em planos de saúde e previdência, prontos para orientar você na melhor escolha.</p>
-          <ul class="list-unstyled mt-3">
-            <li class="mb-2"><i class="bi bi-check2-circle text-multiagri me-2"></i> Atendimento personalizado</li>
-            <li class="mb-2"><i class="bi bi-check2-circle text-multiagri me-2"></i> Suporte contínuo</li>
-            <li class="mb-2"><i class="bi bi-check2-circle text-multiagri me-2"></i> Melhores operadoras do mercado</li>
-            <li class="mb-2"><i class="bi bi-check2-circle text-multiagri me-2"></i> Transparência total</li>
-          </ul>
-          <div class="mt-4 d-flex flex-wrap gap-3">
-            <span class="badge bg-light text-multiagri p-3 rounded-pill border">
-              <i class="bi bi-building"></i> Matriz: Camapuã-MS
-            </span>
-            <span class="badge bg-light text-multiagri p-3 rounded-pill border">
-              <i class="bi bi-award"></i> CNPJ: 06.976.612/0005-24
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ========== DEPOIMENTOS ========== -->
-  <section id="depoimentos" class="py-5 bg-white">
+  <section id="depoimentos" class="py-5" style="background: #f5f8fc;">
     <div class="container py-3">
       <div class="text-center mb-5">
         <span class="badge-soft mb-2"><i class="bi bi-chat-quote-fill me-1"></i> O que nossos clientes dizem</span>
@@ -529,22 +501,6 @@
     </div>
   </section>
 
-  <!-- ========== PARCEIROS ========== -->
-  <section class="py-4 bg-soft-light" style="background: #f5f8fc;">
-    <div class="container">
-      <div class="text-center mb-4">
-        <h6 class="text-uppercase text-secondary fw-bold">Nossos parceiros</h6>
-      </div>
-      <div class="row g-4 align-items-center justify-content-center">
-        <div class="col-auto"><img src="https://placehold.co/120x60/0b2a4a/white?text=Operadora+A" class="partner-logo" alt="Parceiro"></div>
-        <div class="col-auto"><img src="https://placehold.co/120x60/1a4a6f/white?text=Operadora+B" class="partner-logo" alt="Parceiro"></div>
-        <div class="col-auto"><img src="https://placehold.co/120x60/0b2a4a/white?text=Operadora+C" class="partner-logo" alt="Parceiro"></div>
-        <div class="col-auto"><img src="https://placehold.co/120x60/1a4a6f/white?text=Operadora+D" class="partner-logo" alt="Parceiro"></div>
-        <div class="col-auto"><img src="https://placehold.co/120x60/0b2a4a/white?text=Operadora+E" class="partner-logo" alt="Parceiro"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- ========== CONTATO ========== -->
   <section id="contato" class="py-5 bg-multiagri text-white">
     <div class="container py-4">
@@ -587,10 +543,12 @@
         <div class="col-md-4">
           <h6 class="fw-bold text-uppercase small text-multiagri">Institucional</h6>
           <ul class="list-unstyled">
-            <li class="list-group-item-custom"><a href="#" class="footer-link">Políticas e Termos</a></li>
-            <li class="list-group-item-custom"><a href="#" class="footer-link">Contratos</a></li>
-            <li class="list-group-item-custom"><a href="#" class="footer-link">Atendimento</a></li>
-            <li class="list-group-item-custom"><a href="#" class="footer-link">Política de privacidade</a></li>
+            <li><a href="politica-privacidade.html" class="footer-link">Política de Privacidade</a></li>
+            <li><a href="termos-uso.html" class="footer-link">Termos de Uso</a></li>
+            <li><a href="sobre.html" class="footer-link">Sobre</a></li>
+            <li><a href="#" class="footer-link">Políticas e Termos</a></li>
+            <li><a href="#" class="footer-link">Contratos</a></li>
+            <li><a href="#" class="footer-link">Atendimento</a></li>
           </ul>
         </div>
         <div class="col-md-4">
@@ -614,6 +572,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/5567998903937" target="_blank" class="whatsapp-float">
+    <i class="bi bi-whatsapp"></i>
+  </a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
