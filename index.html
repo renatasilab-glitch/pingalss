@@ -1,583 +1,553 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multiagri Corretora de Seguros</title>
-  <!-- Bootstrap 5 + Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erica Verissima Alves dos Santos | Estética e Cuidados com a Beleza</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+
+    :root {
+        --roxo-escuro: #3b1a4e;
+        --roxo-medio: #6a2c8f;
+        --rosa-medio: #c8498f;
+        --rosa-claro: #e67cb0;
+        --rosa-destaque: #ff4d94;
+        --dourado: #f5b301;
+        --cinza-claro: #faf5f9;
+        --cinza-borda: #ecdce7;
+        --texto: #2a1a30;
+        --texto-suave: #7a6a82;
     }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f5f8fc;
-      color: #1a2a3e;
+
+    body { background: #fdf8fc; color: var(--texto); line-height: 1.5; display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* ===== BARRA TOPO ===== */
+    .topbar { background: var(--roxo-escuro); color: #fff; font-size: 0.8rem; text-align: center; padding: 9px 15px; letter-spacing: 0.3px; }
+    .topbar strong { color: var(--dourado); }
+
+    /* ===== CABEÇALHO ===== */
+    header { background: #fff; border-bottom: 1px solid var(--cinza-borda); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(59,26,78,0.06); }
+    .header-main { max-width: 1280px; margin: 0 auto; padding: 16px 20px; display: flex; align-items: center; gap: 25px; }
+    .logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; flex-shrink: 0; text-decoration: none; color: inherit; }
+    .logo-icon { width: 55px; height: 55px; background: linear-gradient(135deg, var(--rosa-medio), var(--roxo-medio)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.7rem; box-shadow: 0 4px 10px rgba(200,73,143,0.3); }
+    .logo-text h1 { font-size: 1.15rem; color: var(--roxo-escuro); font-weight: 800; line-height: 1.15; }
+    .logo-text span { font-size: 0.72rem; color: var(--texto-suave); font-weight: 500; }
+
+    .search-box { flex: 1; display: flex; background: #fff; border: 2px solid var(--rosa-claro); border-radius: 8px; overflow: hidden; max-width: 700px; transition: box-shadow 0.3s; }
+    .search-box:focus-within { box-shadow: 0 0 0 4px rgba(230,124,176,0.18); }
+    .search-box input { flex: 1; border: none; padding: 13px 18px; font-size: 0.92rem; outline: none; color: var(--texto); }
+    .search-box button { background: var(--rosa-medio); color: #fff; border: none; padding: 0 26px; cursor: pointer; font-weight: 700; font-size: 0.9rem; }
+    .search-box button:hover { background: var(--roxo-medio); }
+
+    .header-icons { display: flex; gap: 20px; align-items: center; }
+    .icon-btn { display: flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: var(--texto); font-size: 0.72rem; font-weight: 600; position: relative; transition: color 0.3s; }
+    .icon-btn:hover { color: var(--rosa-medio); }
+    .icon-btn .ico { font-size: 1.5rem; line-height: 1; }
+    .icon-btn .badge-cart { position: absolute; top: -6px; right: -8px; background: var(--rosa-destaque); color: #fff; font-size: 0.65rem; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+    /* ===== MENU ===== */
+    .menu-categorias { background: var(--roxo-medio); }
+    .menu-inner { max-width: 1280px; margin: 0 auto; padding: 0 20px; display: flex; gap: 3px; overflow-x: auto; scrollbar-width: thin; }
+    .menu-inner a { color: #fff; text-decoration: none; padding: 14px 18px; font-size: 0.86rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; transition: background 0.3s, border-color 0.3s; display: flex; align-items: center; gap: 6px; }
+    .menu-inner a:hover, .menu-inner a.ativo { background: rgba(255,255,255,0.13); border-bottom-color: var(--dourado); }
+
+    /* ===== BANNER ===== */
+    .banner { background: linear-gradient(120deg, var(--roxo-escuro) 0%, var(--roxo-medio) 55%, var(--rosa-medio) 100%); color: #fff; padding: 65px 20px; position: relative; overflow: hidden; }
+    .banner::before { content: "💅"; position: absolute; right: 6%; top: 50%; transform: translateY(-50%); font-size: 16rem; opacity: 0.1; }
+    .banner-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 2; }
+    .banner-tag { display: inline-block; background: var(--dourado); color: var(--roxo-escuro); font-size: 0.75rem; font-weight: 800; padding: 5px 15px; border-radius: 20px; margin-bottom: 18px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .banner h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 15px; line-height: 1.15; max-width: 680px; }
+    .banner p { font-size: 1.08rem; margin-bottom: 28px; max-width: 620px; opacity: 0.95; }
+    .banner-botoes { display: flex; gap: 15px; flex-wrap: wrap; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; border: none; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+    .btn-whats { background: #25d366; color: #fff; }
+    .btn-rosa { background: var(--rosa-destaque); color: #fff; }
+
+    /* ===== SEÇÃO ===== */
+    .secao { max-width: 1280px; margin: 0 auto; padding: 55px 20px; width: 100%; }
+    .secao-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; flex-wrap: wrap; gap: 12px; }
+    .secao-header h3 { font-size: 1.7rem; color: var(--roxo-escuro); font-weight: 800; }
+    .secao-header h3::before { content: ""; display: inline-block; width: 5px; height: 22px; background: var(--rosa-destaque); border-radius: 4px; margin-right: 12px; vertical-align: middle; }
+    .secao-header a { color: var(--rosa-medio); font-weight: 700; font-size: 0.9rem; text-decoration: none; }
+    .secao-header a:hover { text-decoration: underline; }
+
+    /* ===== SERVIÇOS ===== */
+    .servicos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px; }
+    .servico-card { background: #fff; border: 1px solid var(--cinza-borda); border-radius: 12px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+    .servico-card:hover { transform: translateY(-5px); box-shadow: 0 12px 28px rgba(106,44,143,0.14); }
+    .servico-imagem { height: 190px; background: linear-gradient(135deg, #fbe6f2, #eccfe3); position: relative; overflow: hidden; }
+    .servico-imagem img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .servico-card:hover .servico-imagem img { transform: scale(1.07); }
+    .servico-tag { position: absolute; top: 10px; left: 10px; background: var(--rosa-destaque); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; z-index: 2; }
+    .servico-tag.novo { background: var(--roxo-medio); }
+    .servico-info { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+    .servico-info h4 { font-size: 0.98rem; color: var(--texto); font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+    .servico-info p { font-size: 0.82rem; color: var(--texto-suave); margin-bottom: 12px; flex: 1; }
+    .servico-preco { font-size: 1.15rem; font-weight: 800; color: var(--rosa-medio); margin-bottom: 12px; }
+    .servico-preco small { font-size: 0.7rem; color: var(--texto-suave); font-weight: 500; display: block; }
+    .btn-add { background: var(--rosa-medio); color: #fff; border: none; padding: 11px; border-radius: 30px; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: background 0.3s; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; }
+    .btn-add:hover { background: var(--roxo-medio); }
+
+    /* ===== CATEGORIAS ===== */
+    .categorias-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; }
+    .categoria-item { background: #fff; border: 1px solid var(--cinza-borda); border-radius: 14px; padding: 24px 15px; text-align: center; text-decoration: none; color: var(--texto); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+    .categoria-item:hover { transform: translateY(-5px); box-shadow: 0 10px 22px rgba(106,44,143,0.1); border-color: var(--rosa-claro); }
+    .categoria-item .categoria-img { width: 80px; height: 80px; margin: 0 auto 14px; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, #fbe6f2, #eccfe3); display: flex; align-items: center; justify-content: center; border: 3px solid #fbe6f2; transition: transform 0.3s, border-color 0.3s; }
+    .categoria-item .categoria-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .categoria-item:hover .categoria-img { transform: scale(1.08); border-color: var(--rosa-claro); }
+    .categoria-item h4 { font-size: 0.92rem; font-weight: 700; color: var(--roxo-escuro); }
+    .categoria-item span { font-size: 0.75rem; color: var(--texto-suave); }
+
+    /* ===== DADOS EMPRESA ===== */
+    .dados-empresa { background: #fff; padding: 55px 20px; border-top: 1px solid var(--cinza-borda); }
+    .dados-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .dado-item { background: var(--cinza-claro); border-left: 4px solid var(--rosa-claro); border-radius: 8px; padding: 15px 18px; }
+    .dado-item strong { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--texto-suave); margin-bottom: 5px; font-weight: 700; }
+    .dado-item span { font-size: 0.98rem; color: var(--texto); font-weight: 600; word-break: break-word; }
+    .status-ativa { display: inline-block; background: #4caf50; color: #fff; padding: 3px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 700; }
+    .cnae-box { margin-top: 22px; background: var(--roxo-escuro); color: #fff; padding: 20px 24px; border-radius: 12px; }
+    .cnae-box strong { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dourado); margin-bottom: 8px; }
+    .cnae-box p { font-size: 1.02rem; font-weight: 600; margin-bottom: 6px; }
+    .cnae-box .sec { font-size: 0.92rem; opacity: 0.9; font-weight: 500; }
+
+    /* ===== CONTATO E MAPA ===== */
+    .contato-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; align-items: stretch; }
+    .contato-card { background: #fff; border: 1px solid var(--cinza-borda); border-radius: 14px; padding: 26px; }
+    .contato-card h4 { color: var(--roxo-escuro); font-size: 1.15rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .contato-linha { display: flex; align-items: flex-start; gap: 12px; padding: 11px 0; border-bottom: 1px dashed var(--cinza-borda); font-size: 0.93rem; }
+    .contato-linha:last-of-type { border-bottom: none; }
+    .contato-linha .ico { font-size: 1.2rem; flex-shrink: 0; }
+    .contato-linha a { color: var(--rosa-medio); text-decoration: none; font-weight: 600; }
+    .contato-linha a:hover { text-decoration: underline; }
+    .contato-card .btn { width: 100%; justify-content: center; }
+    .contato-mapa { padding: 0; overflow: hidden; min-height: 520px; }
+    .contato-mapa iframe { width: 100%; height: 100%; border: 0; display: block; min-height: 520px; }
+
+    /* ===== RODAPÉ ===== */
+    footer { background: var(--roxo-escuro); color: #e6d5ee; padding: 50px 20px 20px; margin-top: auto; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 35px; }
+    .footer-col h4 { color: var(--dourado); font-size: 0.95rem; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+    .footer-col p, .footer-col a { font-size: 0.88rem; color: #e6d5ee; text-decoration: none; display: block; margin-bottom: 8px; line-height: 1.5; }
+    .footer-col a:hover { color: var(--dourado); }
+    .footer-horario { background: rgba(255,255,255,0.07); border-left: 3px solid var(--dourado); padding: 12px 15px; border-radius: 6px; margin-top: 8px; }
+    .footer-horario .hora { font-size: 1.02rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
+    .footer-bottom { max-width: 1280px; margin: 35px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.12); text-align: center; font-size: 0.78rem; color: #c9b3d4; line-height: 1.8; }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 1000px) {
+        .header-main { flex-wrap: wrap; gap: 14px; }
+        .search-box { order: 3; max-width: 100%; width: 100%; flex: 1 1 100%; }
+        .banner h2 { font-size: 1.9rem; }
+        .contato-grid { grid-template-columns: 1fr; }
+        .contato-mapa { min-height: 380px; }
+        .contato-mapa iframe { min-height: 380px; }
     }
-    .bg-multiagri {
-      background: linear-gradient(145deg, #0b2a4a 0%, #1a4a6f 100%);
+    @media (max-width: 600px) {
+        .logo-text h1 { font-size: 1rem; }
+        .logo-text span { font-size: 0.65rem; }
+        .logo-icon { width: 45px; height: 45px; font-size: 1.4rem; }
+        .header-icons { gap: 14px; }
+        .icon-btn .txt { display: none; }
+        .banner { padding: 45px 18px; }
+        .banner h2 { font-size: 1.5rem; }
+        .banner::before { font-size: 8rem; }
+        .secao { padding: 40px 16px; }
+        .secao-header h3 { font-size: 1.3rem; }
+        .menu-inner a { padding: 12px 14px; font-size: 0.8rem; }
+        .contato-mapa { min-height: 300px; }
+        .contato-mapa iframe { min-height: 300px; }
     }
-    .text-multiagri {
-      color: #0b2a4a;
-    }
-    .btn-multiagri {
-      background: #0b2a4a;
-      color: #fff;
-      transition: 0.3s;
-      border-radius: 50px;
-      padding: 12px 32px;
-      font-weight: 600;
-    }
-    .btn-multiagri:hover {
-      background: #1a4a6f;
-      color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(11, 42, 74, 0.3);
-    }
-    .btn-outline-multiagri {
-      border: 2px solid #0b2a4a;
-      color: #0b2a4a;
-      border-radius: 50px;
-      padding: 12px 32px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .btn-outline-multiagri:hover {
-      background: #0b2a4a;
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .btn-light-multiagri {
-      background: white;
-      color: #0b2a4a;
-      border-radius: 50px;
-      padding: 12px 32px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    .btn-light-multiagri:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-    }
-    .card-shadow {
-      box-shadow: 0 12px 40px rgba(0, 20, 40, 0.08);
-      transition: all 0.3s;
-      border: none;
-      border-radius: 24px;
-      overflow: hidden;
-    }
-    .card-shadow:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0, 20, 40, 0.15);
-    }
-    .section-title {
-      font-weight: 800;
-      color: #0b2a4a;
-      letter-spacing: -0.02em;
-    }
-    .section-title span {
-      background: linear-gradient(145deg, #dce8f5, #c5d7ea);
-      padding: 0 16px;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #0b2a4a;
-      display: inline-block;
-    }
-    .badge-soft {
-      background: #e2eaf5;
-      color: #0b2a4a;
-      font-weight: 600;
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-    }
-    .hero-section {
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-section::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(11, 42, 74, 0.85) 0%, rgba(11, 42, 74, 0.4) 100%);
-      z-index: 1;
-    }
-    .hero-section .container {
-      position: relative;
-      z-index: 2;
-    }
-    .hero-image-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-    .stat-card {
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .stat-card:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.03);
-    }
-    .testimonial-card {
-      background: white;
-      border-radius: 24px;
-      padding: 2rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-      border-left: 4px solid #0b2a4a;
-    }
-    .feature-icon {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(145deg, #e8eff8, #d5e3f0);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: #0b2a4a;
-    }
-    .footer-soft {
-      background: #e8eff8;
-      color: #1a2e44;
-      border-top: 2px solid #c5d7ea;
-    }
-    .footer-soft .footer-link {
-      color: #1a3a5a;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.15s;
-    }
-    .footer-soft .footer-link:hover {
-      color: #0b2a4a;
-      text-decoration: underline;
-    }
-    .footer-soft .social-icon {
-      font-size: 1.6rem;
-      color: #1a4a6f;
-      transition: 0.2s;
-    }
-    .footer-soft .social-icon:hover {
-      color: #0b2a4a;
-      transform: translateY(-3px);
-    }
-    .footer-soft hr {
-      border-color: #b8cce0;
-      opacity: 0.5;
-    }
-    .partner-logo {
-      filter: grayscale(100%);
-      opacity: 0.6;
-      transition: 0.3s;
-      max-height: 60px;
-    }
-    .partner-logo:hover {
-      filter: grayscale(0%);
-      opacity: 1;
-    }
-    .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #25d366;
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-      transition: 0.3s;
-      z-index: 999;
-      text-decoration: none;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      color: white;
-      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
-    }
-    @media (max-width: 768px) {
-      .hero-section {
-        min-height: 500px;
-      }
-    }
-  </style>
+</style>
 </head>
 <body>
-  <!-- ========== NAVBAR ========== -->
-  <nav class="navbar navbar-expand-lg bg-multiagri navbar-dark py-3 fixed-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="index.html">
-        <i class="bi bi-shield-check me-2" style="font-size: 2rem;"></i>
-        Multiagri
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto gap-2">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
-          <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
-          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- ========== HERO COM IMAGEM DE SAÚDE ========== -->
-  <section id="home" class="hero-section position-relative" style="min-height: 100vh; padding-top: 80px;">
-    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80" 
-         alt="Equipe médica cuidando da saúde" 
-         class="hero-image-bg">
-    <div class="container py-5 text-white" style="padding-top: 120px !important; padding-bottom: 80px !important;">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-7">
-          <span class="badge bg-white text-multiagri fs-6 fw-semibold px-4 py-2 rounded-pill mb-3">
-            <i class="bi bi-heart-pulse me-2"></i> Corretora especializada há 15+ anos
-          </span>
-          <h1 class="display-3 fw-bold lh-1 mb-3">
-            Proteção que <br><span style="color: #ffd966;">cuida da sua saúde</span>
-          </h1>
-          <p class="lead mb-4 opacity-90" style="max-width: 90%;">
-            Planos de saúde e previdência complementar com a confiança de quem entende. 
-            Mais de 15 anos construindo segurança para você e sua família.
-          </p>
-          <div class="d-flex flex-wrap gap-3">
-            <a href="#planos" class="btn btn-light-multiagri btn-lg px-5">
-              <i class="bi bi-file-check me-2"></i> Ver planos
+<!-- BARRA TOPO -->
+<div class="topbar">
+    💖 Atendemos <strong>Parnaíba e região</strong> — Realce sua beleza com quem entende do assunto!
+</div>
+
+<!-- CABEÇALHO -->
+<header>
+    <div class="header-main">
+        <a href="index.html" class="logo-area">
+            <div class="logo-icon">💅</div>
+            <div class="logo-text">
+                <h1>Erica Verissima Alves dos Santos</h1>
+                <span>Estética e Cuidados com a Beleza</span>
+            </div>
+        </a>
+
+        <div class="search-box">
+            <input type="text" placeholder="Buscar por serviço, tratamento, estética...">
+            <button type="button">Buscar</button>
+        </div>
+
+        <div class="header-icons">
+            <a href="https://wa.me/5586994761256" target="_blank" class="icon-btn">
+                <span class="ico">💬</span>
+                <span class="txt">WhatsApp</span>
             </a>
-            <a href="#contato" class="btn btn-outline-light btn-lg px-5">
-              <i class="bi bi-whatsapp me-2"></i> Fale conosco
+            <a href="tel:+5586994761256" class="icon-btn">
+                <span class="ico">📞</span>
+                <span class="txt">Ligar</span>
             </a>
-          </div>
-          <div class="row g-3 mt-4">
-            <div class="col-4">
-              <div class="stat-card">
-                <h3 class="fw-bold mb-0">15+</h3>
-                <small>Anos de mercado</small>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="stat-card">
-                <h3 class="fw-bold mb-0">5K+</h3>
-                <small>Clientes atendidos</small>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="stat-card">
-                <h3 class="fw-bold mb-0">98%</h3>
-                <small>Satisfação</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5 text-center d-none d-lg-block">
-          <div class="bg-white bg-opacity-15 p-5 rounded-5 backdrop-blur-sm border border-white border-opacity-25">
-            <i class="bi bi-hospital" style="font-size: 8rem; color: #ffd966;"></i>
-            <p class="mt-3 fw-semibold fs-5">
-              <i class="bi bi-check-circle-fill text-success me-2"></i> 
-              Saúde e Previdência
-            </p>
-            <p class="small opacity-75">Cobertura nacional • Rede credenciada</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DADOS DA EMPRESA ========== -->
-  <section class="py-4 bg-white shadow-sm">
-    <div class="container">
-      <div class="row text-center g-3 align-items-center">
-        <div class="col-md-3"><i class="bi bi-calendar-check text-multiagri me-2"></i> <strong>Cadastro:</strong> 14/06/2007</div>
-        <div class="col-md-3"><i class="bi bi-file-earmark-text text-multiagri me-2"></i> <strong>CNPJ:</strong> 06.976.612/0005-24</div>
-        <div class="col-md-3"><i class="bi bi-geo-alt text-multiagri me-2"></i> <strong>Camapuã - MS</strong></div>
-        <div class="col-md-3"><i class="bi bi-telephone text-multiagri me-2"></i> <strong>(67) 99890-3937</strong></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PLANOS ========== -->
-  <section id="planos" class="py-5" style="background: #f5f8fc;">
-    <div class="container py-3">
-      <div class="text-center mb-5">
-        <span class="badge-soft mb-2"><i class="bi bi-grid-3x3-gap-fill me-1"></i> Nossos Planos</span>
-        <h2 class="section-title display-5">Soluções completas para <span>você</span></h2>
-        <p class="text-secondary">Cobertura abrangente com as melhores operadoras do mercado</p>
-      </div>
-      <div class="row g-4">
-        <!-- Plano Saúde -->
-        <div class="col-lg-6">
-          <div class="card-shadow h-100" style="background: white;">
-            <div style="height: 200px; overflow: hidden;">
-              <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?w=800&q=80" 
-                   alt="Plano de Saúde" 
-                   class="img-fluid w-100 h-100" style="object-fit: cover;">
-            </div>
-            <div class="p-4">
-              <div class="d-flex align-items-center gap-3 mb-3">
-                <i class="bi bi-heart-pulse-fill" style="font-size: 2.8rem; color: #0b2a4a;"></i>
-                <h3 class="h2 fw-bold text-multiagri mb-0">Plano de Saúde</h3>
-              </div>
-              <p class="fs-5 fw-light">Rede credenciada, atendimento ágil e cobertura nacional.</p>
-              <ul class="list-unstyled mt-3">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Consultas, exames e internações</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Maternidade e pediatria</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Urgência e emergência 24h</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Cobertura nacional</li>
-              </ul>
-              <div class="mt-3">
-                <span class="badge-soft"><i class="bi bi-tag me-1"></i> A partir de R$ 249/mês</span>
-              </div>
-              <div class="mt-4">
-                <a href="#contato" class="btn btn-multiagri px-5 w-100">Quero esse plano</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Previdência Complementar -->
-        <div class="col-lg-6">
-          <div class="card-shadow h-100" style="background: white;">
-            <div style="height: 200px; overflow: hidden;">
-              <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80" 
-                   alt="Previdência" 
-                   class="img-fluid w-100 h-100" style="object-fit: cover;">
-            </div>
-            <div class="p-4">
-              <div class="d-flex align-items-center gap-3 mb-3">
-                <i class="bi bi-piggy-bank-fill" style="font-size: 2.8rem; color: #0b2a4a;"></i>
-                <h3 class="h2 fw-bold text-multiagri mb-0">Previdência</h3>
-              </div>
-              <p class="fs-5 fw-light">Construa seu futuro com segurança e vantagens fiscais.</p>
-              <ul class="list-unstyled mt-3">
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Planos PGBL e VGBL</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Resgate programado ou total</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Benefício fiscal (IR)</li>
-                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Portabilidade facilitada</li>
-              </ul>
-              <div class="mt-3">
-                <span class="badge-soft"><i class="bi bi-arrow-up-circle me-1"></i> Rentabilidade competitiva</span>
-              </div>
-              <div class="mt-4">
-                <a href="#contato" class="btn btn-outline-multiagri px-5 w-100">Simular agora</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DIFERENCIAIS ========== -->
-  <section id="diferenciais" class="py-5 bg-white">
-    <div class="container py-3">
-      <div class="text-center mb-5">
-        <span class="badge-soft mb-2"><i class="bi bi-star-fill me-1"></i> Por que escolher a Multiagri</span>
-        <h2 class="section-title display-5">Nossos <span>Diferenciais</span></h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="text-center p-4 rounded-4 bg-light">
-            <div class="feature-icon mx-auto mb-3">
-              <i class="bi bi-people-fill"></i>
-            </div>
-            <h5 class="fw-bold">Atendimento Personalizado</h5>
-            <p class="text-secondary">Corretores especializados que entendem suas necessidades e oferecem a melhor solução.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="text-center p-4 rounded-4 bg-light">
-            <div class="feature-icon mx-auto mb-3">
-              <i class="bi bi-building"></i>
-            </div>
-            <h5 class="fw-bold">Melhores Operadoras</h5>
-            <p class="text-secondary">Parceria com as principais operadoras de saúde e previdência do país.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="text-center p-4 rounded-4 bg-light">
-            <div class="feature-icon mx-auto mb-3">
-              <i class="bi bi-clock-history"></i>
-            </div>
-            <h5 class="fw-bold">Suporte Contínuo</h5>
-            <p class="text-secondary">Acompanhamento em todas as etapas, da contratação ao pós-venda.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== DEPOIMENTOS ========== -->
-  <section id="depoimentos" class="py-5" style="background: #f5f8fc;">
-    <div class="container py-3">
-      <div class="text-center mb-5">
-        <span class="badge-soft mb-2"><i class="bi bi-chat-quote-fill me-1"></i> O que nossos clientes dizem</span>
-        <h2 class="section-title display-5">Depoimentos <span>Reais</span></h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="testimonial-card h-100">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <div style="width: 50px; height: 50px; background: #0b2a4a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.4rem;">MR</div>
-              <div>
-                <h6 class="fw-bold mb-0">Maria R.</h6>
-                <small class="text-secondary">Cliente há 3 anos</small>
-              </div>
-            </div>
-            <p class="mb-0">"Excelente atendimento! A Multiagri me ajudou a encontrar o plano de saúde ideal para minha família. Recomendo a todos!"</p>
-            <div class="mt-2 text-warning">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="testimonial-card h-100">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <div style="width: 50px; height: 50px; background: #1a4a6f; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.4rem;">JS</div>
-              <div>
-                <h6 class="fw-bold mb-0">João S.</h6>
-                <small class="text-secondary">Cliente há 5 anos</small>
-              </div>
-            </div>
-            <p class="mb-0">"Contratei minha previdência com a Multiagri e não me arrependo. Profissionais competentes e sempre disponíveis para tirar dúvidas."</p>
-            <div class="mt-2 text-warning">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="testimonial-card h-100">
-            <div class="d-flex align-items-center gap-3 mb-3">
-              <div style="width: 50px; height: 50px; background: #0b2a4a; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.4rem;">AC</div>
-              <div>
-                <h6 class="fw-bold mb-0">Ana C.</h6>
-                <small class="text-secondary">Cliente há 2 anos</small>
-              </div>
-            </div>
-            <p class="mb-0">"Atendimento humanizado e eficiente. A Multiagri sempre me orienta com clareza e transparência. Super recomendo!"</p>
-            <div class="mt-2 text-warning">
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CONTATO ========== -->
-  <section id="contato" class="py-5 bg-multiagri text-white">
-    <div class="container py-4">
-      <div class="row justify-content-center text-center">
-        <div class="col-lg-8">
-          <h2 class="display-5 fw-bold">Pronto para se proteger?</h2>
-          <p class="lead opacity-75">Fale com um corretor Multiagri e simule o plano ideal para você.</p>
-          <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-            <a href="#" class="btn btn-light btn-lg px-5 text-multiagri fw-semibold">
-              <i class="bi bi-whatsapp me-2"></i> (67) 99890-3937
+            <a href="#" class="icon-btn">
+                <span class="ico">📅</span>
+                <span class="badge-cart">0</span>
+                <span class="txt">Agenda</span>
             </a>
-            <a href="#" class="btn btn-outline-light btn-lg px-5">
-              <i class="bi bi-envelope me-2"></i> contato@multiagri.com.br
+        </div>
+    </div>
+
+    <!-- MENU CATEGORIAS -->
+    <nav class="menu-categorias">
+        <div class="menu-inner">
+            <a href="#inicio" class="ativo">🏠 Início</a>
+            <a href="#servicos">💅 Estética</a>
+            <a href="#servicos">💇‍♀️ Cabelos</a>
+            <a href="#servicos">💆‍♀️ Skincare</a>
+            <a href="#servicos">💄 Maquiagem</a>
+            <a href="#servicos">💅 Unhas</a>
+            <a href="#servicos">👁️ Sobrancelhas</a>
+            <a href="sobre.html">ℹ️ Sobre</a>
+            <a href="politicas.html">🔒 Privacidade</a>
+            <a href="termos.html">📄 Termos</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <!-- BANNER -->
+    <section class="banner" id="inicio">
+        <div class="banner-inner">
+            <span class="banner-tag">✨ Beleza & Bem-estar</span>
+            <h2>Realce sua beleza com cuidados profissionais</h2>
+            <p>Serviços de estética e cuidados com a beleza em Parnaíba - PI. Tratamentos personalizados, atendimento acolhedor e resultados que valorizam você.</p>
+            <div class="banner-botoes">
+                <a href="https://wa.me/5586994761256" target="_blank" class="btn btn-whats">💬 Agendar pelo WhatsApp</a>
+                <a href="#servicos" class="btn btn-rosa">✨ Ver Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="secao">
+        <div class="secao-header">
+            <h3>Nossas Especialidades</h3>
+        </div>
+        <div class="categorias-grid">
+            <a href="#servicos" class="categoria-item">
+                <div class="categoria-img">
+                    <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=200&q=80" alt="Estética Facial">
+                </div>
+                <h4>Estética Facial</h4>
+                <span>Limpeza e tratamentos</span>
             </a>
-          </div>
-          <p class="mt-4 small opacity-75"><i class="bi bi-info-circle"></i> Atendimento de segunda a sexta, 8h às 18h.</p>
+            <a href="#servicos" class="categoria-item">
+                <div class="categoria-img">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=200&q=80" alt="Cabelos">
+                </div>
+                <h4>Cabelos</h4>
+                <span>Cortes e tratamentos</span>
+            </a>
+            <a href="#servicos" class="categoria-item">
+                <div class="categoria-img">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=200&q=80" alt="Skincare">
+                </div>
+                <h4>Skincare</h4>
+                <span>Cuidados com a pele</span>
+            </a>
+            <a href="#servicos" class="categoria-item">
+                <div class="categoria-img">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=200&q=80" alt="Maquiagem">
+                </div>
+                <h4>Maquiagem</h4>
+                <span>Social e artística</span>
+            </a>
+            <a href="#servicos" class="categoria-item">
+                <div class="categoria-img">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=200&q=80" alt="Unhas">
+                </div>
+                <h4>Unhas</h4>
+                <span>Manicure e nail art</span>
+            </a>
+            <a href="#servicos" class="categoria-item">
+                <div class="categoria-img">
+                    <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=200&q=80" alt="Sobrancelhas">
+                </div>
+                <h4>Sobrancelhas</h4>
+                <span>Design e henna</span>
+            </a>
         </div>
-      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="secao" id="servicos" style="padding-top:0;">
+        <div class="secao-header">
+            <h3>Serviços em Destaque</h3>
+            <a href="https://wa.me/5586994761256" target="_blank">Agendar agora →</a>
+        </div>
+        <div class="servicos-grid">
+
+            <div class="servico-card">
+                <div class="servico-imagem">
+                    <span class="servico-tag">Popular</span>
+                    <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=500&q=80" alt="Limpeza de Pele">
+                </div>
+                <div class="servico-info">
+                    <h4>Limpeza de Pele</h4>
+                    <p>Higienização profunda, extração e hidratação para revitalizar sua pele.</p>
+                    <div class="servico-preco">Sob consulta <small>agende sua avaliação</small></div>
+                    <a href="https://wa.me/5586994761256" target="_blank" class="btn-add">💬 Agendar</a>
+                </div>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-imagem">
+                    <span class="servico-tag novo">Novo</span>
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&q=80" alt="Skincare">
+                </div>
+                <div class="servico-info">
+                    <h4>Tratamento Facial</h4>
+                    <p>Protocolos personalizados para hidratação, rejuvenescimento e cuidados.</p>
+                    <div class="servico-preco">Sob consulta <small>agende sua avaliação</small></div>
+                    <a href="https://wa.me/5586994761256" target="_blank" class="btn-add">💬 Agendar</a>
+                </div>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-imagem">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&q=80" alt="Manicure">
+                </div>
+                <div class="servico-info">
+                    <h4>Manicure e Pedicure</h4>
+                    <p>Cuidado completo das unhas, com esmaltação e nail art personalizada.</p>
+                    <div class="servico-preco">Sob consulta <small>agende sua avaliação</small></div>
+                    <a href="https://wa.me/5586994761256" target="_blank" class="btn-add">💬 Agendar</a>
+                </div>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-imagem">
+                    <span class="servico-tag">Popular</span>
+                    <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=500&q=80" alt="Design de Sobrancelha">
+                </div>
+                <div class="servico-info">
+                    <h4>Design de Sobrancelhas</h4>
+                    <p>Modelagem com técnica personalizada e opção de aplicação de henna.</p>
+                    <div class="servico-preco">Sob consulta <small>agende sua avaliação</small></div>
+                    <a href="https://wa.me/5586994761256" target="_blank" class="btn-add">💬 Agendar</a>
+                </div>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-imagem">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=500&q=80" alt="Maquiagem">
+                </div>
+                <div class="servico-info">
+                    <h4>Maquiagem Profissional</h4>
+                    <p>Maquiagem social, para eventos, noivas e produções fotográficas.</p>
+                    <div class="servico-preco">Sob consulta <small>agende sua avaliação</small></div>
+                    <a href="https://wa.me/5586994761256" target="_blank" class="btn-add">💬 Agendar</a>
+                </div>
+            </div>
+
+            <div class="servico-card">
+                <div class="servico-imagem">
+                    <span class="servico-tag novo">Novo</span>
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80" alt="Tratamento Capilar">
+                </div>
+                <div class="servico-info">
+                    <h4>Tratamento Capilar</h4>
+                    <p>Hidratação, reconstrução e nutrição para cabelos saudáveis e brilhantes.</p>
+                    <div class="servico-preco">Sob consulta <small>agende sua avaliação</small></div>
+                    <a href="https://wa.me/5586994761256" target="_blank" class="btn-add">💬 Agendar</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DADOS DA EMPRESA -->
+    <section class="dados-empresa" id="dados">
+        <div class="secao">
+            <div class="secao-header" style="margin-bottom:25px;">
+                <h3>Dados da Empresa</h3>
+            </div>
+            <div class="dados-grid">
+                <div class="dado-item"><strong>CNPJ</strong><span>58.551.728/0001-91</span></div>
+                <div class="dado-item"><strong>Razão Social</strong><span>58.551.728 Erica Verissima Alves dos Santos</span></div>
+                <div class="dado-item"><strong>Data da Abertura</strong><span>25/12/2024 — 1 ano, 9 meses e 12 dias</span></div>
+                <div class="dado-item"><strong>Porte</strong><span>Microempreendedor Individual (MEI)</span></div>
+                <div class="dado-item"><strong>Natureza Jurídica</strong><span>Empresário (Individual)</span></div>
+                <div class="dado-item"><strong>Opção pelo MEI</strong><span>Sim</span></div>
+                <div class="dado-item"><strong>Opção pelo Simples</strong><span>Sim — desde 25/12/2024</span></div>
+                <div class="dado-item"><strong>Capital Social</strong><span>R$ 10.000,00</span></div>
+                <div class="dado-item"><strong>Tipo</strong><span>Matriz</span></div>
+                <div class="dado-item"><strong>Situação</strong><span><span class="status-ativa">Ativa</span></span></div>
+                <div class="dado-item"><strong>Data Situação Cadastral</strong><span>25/12/2024</span></div>
+            </div>
+            <div class="cnae-box">
+                <strong>Atividade Principal — CNAE</strong>
+                <p>96.02-5-02 — Atividades de estética e outros serviços de cuidados com a beleza</p>
+                <p class="sec">📎 Secundária: 90.01-9-02 — Produção musical</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO E LOCALIZAÇÃO -->
+    <section class="secao" id="contato">
+        <div class="secao-header">
+            <h3>Contato e Localização</h3>
+        </div>
+
+        <div class="contato-grid">
+
+            <div class="contato-card">
+                <h4>📞 Fale Conosco</h4>
+                <div class="contato-linha">
+                    <span class="ico">📧</span>
+                    <div>
+                        <strong>E-mail</strong><br>
+                        <a href="mailto:inovassessoriacontabil@gmail.com">inovassessoriacontabil@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contato-linha">
+                    <span class="ico">📱</span>
+                    <div>
+                        <strong>Telefone / WhatsApp</strong><br>
+                        <a href="tel:+5586994761256">(86) 99476-1256</a>
+                    </div>
+                </div>
+                <div class="contato-linha">
+                    <span class="ico">💬</span>
+                    <div>
+                        <strong>WhatsApp Direto</strong><br>
+                        <a href="https://wa.me/5586994761256" target="_blank">Chamar no WhatsApp</a>
+                    </div>
+                </div>
+
+                <h4 style="margin-top:26px;">📍 Endereço</h4>
+                <div class="contato-linha">
+                    <span class="ico">🏠</span>
+                    <div>
+                        <strong>Logradouro</strong><br>
+                        Rua Itauna, 1067
+                    </div>
+                </div>
+                <div class="contato-linha">
+                    <span class="ico">🏘️</span>
+                    <div>
+                        <strong>Bairro</strong><br>
+                        Pindorama
+                    </div>
+                </div>
+                <div class="contato-linha">
+                    <span class="ico">🏙️</span>
+                    <div>
+                        <strong>Cidade / Estado</strong><br>
+                        Parnaíba — Piauí
+                    </div>
+                </div>
+                <div class="contato-linha">
+                    <span class="ico">📮</span>
+                    <div>
+                        <strong>CEP</strong><br>
+                        64215-319
+                    </div>
+                </div>
+
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Itauna+1067+Pindorama+Parnaíba+PI+64215-319" 
+                   target="_blank" 
+                   class="btn btn-whats" 
+                   style="margin-top:20px;">
+                    🧭 Traçar Rota no Google Maps
+                </a>
+            </div>
+
+            <div class="contato-card contato-mapa">
+                <iframe 
+                    src="https://www.google.com/maps?q=Rua+Itauna,+1067,+Pindorama,+Parnaíba,+PI,+64215-319&output=embed"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- RODAPÉ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-col">
+            <h4>💅 Erica Verissima Alves dos Santos</h4>
+            <p>Atividades de estética e outros serviços de cuidados com a beleza em Parnaíba - PI.</p>
+            <p style="margin-top:12px;"><strong style="color:#fff;">CNPJ:</strong> 58.551.728/0001-91</p>
+            <p><strong style="color:#fff;">Razão Social:</strong> 58.551.728 Erica Verissima Alves dos Santos</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>📞 Contato</h4>
+            <p>📧 <a href="mailto:inovassessoriacontabil@gmail.com">inovassessoriacontabil@gmail.com</a></p>
+            <p>📱 <a href="tel:+5586994761256">(86) 99476-1256</a></p>
+            <p>💬 <a href="https://wa.me/5586994761256" target="_blank">WhatsApp</a></p>
+        </div>
+
+        <div class="footer-col">
+            <h4>📍 Localização</h4>
+            <p>Rua Itauna, 1067</p>
+            <p>Bairro Pindorama</p>
+            <p>Parnaíba — PI</p>
+            <p>CEP: 64215-319</p>
+            <p style="margin-top:8px;"><a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Itauna+1067+Pindorama+Parnaíba+PI+64215-319" target="_blank">Ver no Google Maps →</a></p>
+        </div>
+
+        <div class="footer-col">
+            <h4>🔗 Institucional</h4>
+            <a href="sobre.html">Sobre</a>
+            <a href="politicas.html">Políticas de Privacidade</a>
+            <a href="termos.html">Termos de Uso</a>
+            <a href="index.html">Início</a>
+        </div>
+
+        <div class="footer-col">
+            <h4>🕒 Horário</h4>
+            <div class="footer-horario">
+                <div class="hora" id="horarioFooter">Carregando...</div>
+                <p style="font-size:0.8rem; margin:0; opacity:0.85;">Segunda a Sábado — 08h às 19h</p>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer-soft pt-5 pb-4">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-md-4">
-          <h5 class="fw-bold d-flex align-items-center text-multiagri">
-            <i class="bi bi-shield-check me-2"></i> Multiagri
-          </h5>
-          <p class="text-secondary-emphasis small">Consultoria e Corretora de Seguros LTDA</p>
-          <p class="text-secondary-emphasis small">
-            <i class="bi bi-geo-alt me-1"></i> Rua Paraíba, 62 – Jardim dos Palmares, Camapuã-MS
-          </p>
-          <div class="mt-3">
-            <a href="#" class="social-icon me-3"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="social-icon me-3"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="social-icon"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <h6 class="fw-bold text-uppercase small text-multiagri">Institucional</h6>
-          <ul class="list-unstyled">
-            <li><a href="politica-privacidade.html" class="footer-link">Política de Privacidade</a></li>
-            <li><a href="termos-uso.html" class="footer-link">Termos de Uso</a></li>
-            <li><a href="sobre.html" class="footer-link">Sobre</a></li>
-            <li><a href="#" class="footer-link">Políticas e Termos</a></li>
-            <li><a href="#" class="footer-link">Contratos</a></li>
-            <li><a href="#" class="footer-link">Atendimento</a></li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h6 class="fw-bold text-uppercase small text-multiagri">Contato</h6>
-          <ul class="list-unstyled text-secondary-emphasis small">
-            <li><i class="bi bi-telephone me-2"></i> (67) 99890-3937</li>
-            <li><i class="bi bi-envelope me-2"></i> contato@multiagri.com.br</li>
-            <li><i class="bi bi-clock me-2"></i> Seg–Sex 8h–18h</li>
-            <li class="mt-2"><span class="badge bg-multiagri text-white">CNPJ: 06.976.612/0005-24</span></li>
-          </ul>
-        </div>
-      </div>
-      <hr class="mt-4">
-      <div class="row">
-        <div class="col-md-6 text-secondary-emphasis small">
-          © 2026 Multiagri Corretora de Seguros – Todos os direitos reservados.
-        </div>
-        <div class="col-md-6 text-md-end text-secondary-emphasis small">
-          <i class="bi bi-shield-plus"></i> Protegendo vidas desde 2007
-        </div>
-      </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 58.551.728 Erica Verissima Alves dos Santos — CNPJ: 58.551.728/0001-91. Todos os direitos reservados.</p>
+        <p>Atividade Principal: 96.02-5-02 — Atividades de estética e outros serviços de cuidados com a beleza.</p>
+        <p>Situação Cadastral: Ativa | MEI | Simples Nacional | Abertura: 25/12/2024</p>
     </div>
-  </footer>
+</footer>
 
-  <!-- WhatsApp Float -->
-  <a href="https://wa.me/5567998903937" target="_blank" class="whatsapp-float">
-    <i class="bi bi-whatsapp"></i>
-  </a>
+<script>
+    function atualizarHorario() {
+        const agora = new Date();
+        const dia = String(agora.getDate()).padStart(2, '0');
+        const mes = String(agora.getMonth() + 1).padStart(2, '0');
+        const ano = agora.getFullYear();
+        const horas = String(agora.getHours()).padStart(2, '0');
+        const minutos = String(agora.getMinutes()).padStart(2, '0');
+        const segundos = String(agora.getSeconds()).padStart(2, '0');
+        const el = document.getElementById('horarioFooter');
+        if (el) el.textContent = `${dia}/${mes}/${ano} — ${horas}:${minutos}:${segundos}`;
+    }
+    atualizarHorario();
+    setInterval(atualizarHorario, 1000);
+</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
