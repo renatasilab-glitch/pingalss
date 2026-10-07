@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Políticas de Privacidade | Erica Verissima Alves dos Santos</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Arial, sans-serif; }
+    :root {
+        --roxo-escuro: #3b1a4e; --roxo-medio: #6a2c8f; --rosa-medio: #c8498f;
+        --rosa-claro: #e67cb0; --rosa-destaque: #ff4d94; --dourado: #f5b301;
+        --cinza-claro: #faf5f9; --cinza-borda: #ecdce7;
+        --texto: #2a1a30; --texto-suave: #7a6a82;
+    }
+    body { background: #fdf8fc; color: var(--texto); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
 
+    .topbar { background: var(--roxo-escuro); color: #fff; font-size: 0.8rem; text-align: center; padding: 9px 15px; }
+    .topbar strong { color: var(--dourado); }
+
+    header { background: #fff; border-bottom: 1px solid var(--cinza-borda); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(59,26,78,0.06); }
+    .header-main { max-width: 1280px; margin: 0 auto; padding: 16px 20px; display: flex; align-items: center; gap: 25px; }
+    .logo-area { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .logo-icon { width: 55px; height: 55px; background: linear-gradient(135deg, var(--rosa-medio), var(--roxo-medio)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.7rem; }
+    .logo-text h1 { font-size: 1.15rem; color: var(--roxo-escuro); font-weight: 800; line-height: 1.15; }
+    .logo-text span { font-size: 0.72rem; color: var(--texto-suave); font-weight: 500; }
+
+    .header-icons { display: flex; gap: 20px; align-items: center; margin-left: auto; }
+    .icon-btn { display: flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: var(--texto); font-size: 0.72rem; font-weight: 600; }
+    .icon-btn:hover { color: var(--rosa-medio); }
+    .icon-btn .ico { font-size: 1.5rem; }
+
+    .menu-categorias { background: var(--roxo-medio); }
+    .menu-inner { max-width: 1280px; margin: 0 auto; padding: 0 20px; display: flex; gap: 3px; overflow-x: auto; }
+    .menu-inner a { color: #fff; text-decoration: none; padding: 14px 18px; font-size: 0.86rem; font-weight: 600; white-space: nowrap; border-bottom: 3px solid transparent; display: flex; align-items: center; gap: 6px; }
+    .menu-inner a:hover, .menu-inner a.ativo { background: rgba(255,255,255,0.13); border-bottom-color: var(--dourado); }
+
+    .pagina { max-width: 1000px; margin: 0 auto; padding: 55px 20px; width: 100%; flex: 1; }
+    .pagina h2 { color: var(--roxo-escuro); font-size: 2.2rem; margin-bottom: 25px; border-left: 6px solid var(--rosa-destaque); padding-left: 18px; }
+    .pagina h3 { color: var(--rosa-medio); font-size: 1.2rem; margin: 26px 0 10px; }
+    .pagina p { margin-bottom: 14px; color: #4a3a52; text-align: justify; }
+    .pagina ul { margin: 0 0 15px 25px; color: #4a3a52; }
+    .pagina ul li { margin-bottom: 8px; }
+    .pagina a { color: var(--rosa-medio); font-weight: 600; text-decoration: none; }
+    .pagina a:hover { text-decoration: underline; }
+
+    footer { background: var(--roxo-escuro); color: #e6d5ee; padding: 50px 20px 20px; margin-top: auto; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 35px; }
+    .footer-col h4 { color: var(--dourado); font-size: 0.95rem; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+    .footer-col p, .footer-col a { font-size: 0.88rem; color: #e6d5ee; text-decoration: none; display: block; margin-bottom: 8px; line-height: 1.5; }
+    .footer-col a:hover { color: var(--dourado); }
+    .footer-horario { background: rgba(255,255,255,0.07); border-left: 3px solid var(--dourado); padding: 12px 15px; border-radius: 6px; margin-top: 8px; }
+    .footer-horario .hora { font-size: 1.02rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
+    .footer-bottom { max-width: 1280px; margin: 35px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.12); text-align: center; font-size: 0.78rem; color: #c9b3d4; line-height: 1.8; }
+
+    @media (max-width: 600px) {
+        .logo-text h1 { font-size: 1rem; }
+        .logo-text span { font-size: 0.65rem; }
+        .logo-icon { width: 45px; height: 45px; font-size: 1.4rem; }
+        .icon-btn .txt { display: none; }
+        .pagina h2 { font-size: 1.5rem; }
+        .menu-inner a { padding: 12px 14px; font-size: 0.8rem; }
+    }
+</style>
+</head>
+<body>
+
+<div class="topbar">💖 Atendemos <strong>Parnaíba e região</strong> — Realce sua beleza com quem entende!</div>
+
+<header>
+    <div class="header-main">
+        <a href="index.html" class="logo-area">
+            <div class="logo-icon">💅</div>
+            <div class="logo-text">
+                <h1>Erica Verissima Alves dos Santos</h1>
+                <span>Estética e Cuidados com a Beleza</span>
+            </div>
+        </a>
+        <div class="header-icons">
+            <a href="https://wa.me/5586994761256" target="_blank" class="icon-btn">
+                <span class="ico">💬</span><span class="txt">WhatsApp</span>
+            </a>
+            <a href="tel:+5586994761256" class="icon-btn">
+                <span class="ico">📞</span><span class="txt">Ligar</span>
+            </a>
+        </div>
+    </div>
+
+    <nav class="menu-categorias">
+        <div class="menu-inner">
+            <a href="index.html">🏠 Início</a>
+            <a href="sobre.html">ℹ️ Sobre</a>
+            <a href="politicas.html" class="ativo">🔒 Privacidade</a>
+            <a href="termos.html">📄 Termos</a>
+        </div>
+    </nav>
+</header>
+
+<main class="pagina">
+    <h2>Políticas de Privacidade</h2>
+
+    <p>A <strong>58.551.728 Erica Verissima Alves dos Santos</strong>, CNPJ <strong>58.551.728/0001-91</strong>, valoriza a privacidade e a segurança dos dados de seus clientes. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos as informações pessoais fornecidas por você.</p>
+
+    <h3>1. Coleta de Informações</h3>
+    <p>Coletamos informações pessoais como nome, endereço, telefone e e-mail quando você agenda um serviço, entra em contato conosco ou se cadastra em nossos canais de atendimento.</p>
+
+    <h3>2. Uso das Informações</h3>
+    <p>As informações coletadas são utilizadas para:</p>
+    <ul>
+        <li>Agendar e confirmar serviços de estética e beleza;</li>
+        <li>Entrar em contato sobre agendamentos ou solicitações;</li>
+        <li>Enviar lembretes de horários marcados;</li>
+        <li>Melhorar nossos serviços e atendimento;</li>
+        <li>Enviar comunicações promocionais (com consentimento).</li>
+    </ul>
+
+    <h3>3. Compartilhamento de Dados</h3>
+    <p>Não compartilhamos suas informações pessoais com terceiros, exceto quando necessário para execução dos serviços contratados, ou quando exigido por lei.</p>
+
+    <h3>4. Segurança</h3>
+    <p>Adotamos medidas de segurança para proteger seus dados contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+
+    <h3>5. Seus Direitos</h3>
+    <p>Você tem o direito de solicitar acesso, correção ou exclusão de seus dados pessoais. Para isso, entre em contato pelo e-mail: <a href="mailto:inovassessoriacontabil@gmail.com">inovassessoriacontabil@gmail.com</a>.</p>
+
+    <h3>6. Cookies</h3>
+    <p>Nosso site pode utilizar cookies para melhorar a experiência de navegação. Você pode desativá-los nas configurações do seu navegador, se preferir.</p>
+
+    <h3>7. Alterações nesta Política</h3>
+    <p>Esta política pode ser atualizada periodicamente. Recomendamos que você a revise regularmente.</p>
+
+    <p><em>Última atualização: Dezembro de 2024.</em></p>
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-col">
+            <h4>💅 Erica Verissima Alves dos Santos</h4>
+            <p>Atividades de estética e outros serviços de cuidados com a beleza em Parnaíba - PI.</p>
+            <p style="margin-top:12px;"><strong style="color:#fff;">CNPJ:</strong> 58.551.728/0001-91</p>
+        </div>
+        <div class="footer-col">
+            <h4>📞 Contato</h4>
+            <p>📧 <a href="mailto:inovassessoriacontabil@gmail.com">inovassessoriacontabil@gmail.com</a></p>
+            <p>📱 <a href="tel:+5586994761256">(86) 99476-1256</a></p>
+            <p>💬 <a href="https://wa.me/5586994761256" target="_blank">WhatsApp</a></p>
+        </div>
+        <div class="footer-col">
+            <h4>📍 Localização</h4>
+            <p>Rua Itauna, 1067</p>
+            <p>Bairro Pindorama — Parnaíba/PI</p>
+            <p>CEP: 64215-319</p>
+        </div>
+        <div class="footer-col">
+            <h4>🔗 Institucional</h4>
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="politicas.html">Políticas de Privacidade</a>
+            <a href="termos.html">Termos de Uso</a>
+        </div>
+        <div class="footer-col">
+            <h4>🕒 Horário</h4>
+            <div class="footer-horario">
+                <div class="hora" id="horarioFooter">Carregando...</div>
+                <p style="font-size:0.8rem; margin:0; opacity:0.85;">Segunda a Sábado — 08h às 19h</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 58.551.728 Erica Verissima Alves dos Santos — CNPJ: 58.551.728/0001-91.</p>
+        <p>Atividade Principal: 96.02-5-02 — Atividades de estética e outros serviços de cuidados com a beleza.</p>
+    </div>
+</footer>
+
+<script>
+    function atualizarHorario() {
+        const agora = new Date();
+        const dia = String(agora.getDate()).padStart(2, '0');
+        const mes = String(agora.getMonth() + 1).padStart(2, '0');
+        const ano = agora.getFullYear();
+        const horas = String(agora.getHours()).padStart(2, '0');
+        const minutos = String(agora.getMinutes()).padStart(2, '0');
+        const segundos = String(agora.getSeconds()).padStart(2, '0');
+        const el = document.getElementById('horarioFooter');
+        if (el) el.textContent = `${dia}/${mes}/${ano} — ${horas}:${minutos}:${segundos}`;
+    }
+    atualizarHorario();
+    setInterval(atualizarHorario, 1000);
+</script>
+
+</body>
+</html>
